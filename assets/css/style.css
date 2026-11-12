@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(135deg, #102d52 0%, #1765a8 55%, #dbeafe 100%);
+  min-height: 100vh;
+}
+.step { display: none; }
+.step.active { display: block; }
+.rating input { position: absolute; opacity: 0; pointer-events: none; }
+.rating label {
+  display: block;
+  cursor: pointer;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 5px;
+  text-align: center;
+  transition: .2s;
+  min-height: 72px;
+}
+.rating input:checked + label {
+  background: #1d4ed8;
+  color: white;
+  border-color: #1d4ed8;
+}
+.rating label:hover { border-color: #2563eb; }
+.rating input:focus-visible + label { outline: 3px solid #93c5fd; outline-offset: 2px; }
+button:disabled { opacity: .65; cursor: wait; }
