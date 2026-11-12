@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d52">
+  <meta name="description" content="Survei Kepuasan Masyarakat Pelayanan Cetak KTP-el dan Aktivasi IKD di MPP Disdukcapil Kabupaten Majalengka.">
+  <title>Kuesioner SKM | MPP Disdukcapil Majalengka</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="min-h-screen p-3 sm:p-6">
+  <main class="mx-auto max-w-3xl py-4 sm:py-8">
+    <header class="mb-6 text-center text-white">
+      <div class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm">
+        MPP · DISDUKCAPIL KABUPATEN MAJALENGKA
+      </div>
+      <h1 class="text-2xl font-extrabold leading-tight sm:text-4xl">Survei Kepuasan Masyarakat</h1>
+      <p class="mt-2 text-blue-100">Pelayanan Cetak KTP-el dan Aktivasi IKD</p>
+    </header>
+
+    <section class="rounded-3xl bg-white p-5 shadow-2xl sm:p-8">
+      <div class="mb-2 flex justify-between text-sm text-slate-500">
+        <span id="stepLabel">Tahap 1 dari 2</span>
+        <span id="progressText">0%</span>
+      </div>
+      <div class="mb-7 h-2 overflow-hidden rounded-full bg-slate-100">
+        <div id="progress" class="h-full rounded-full bg-blue-600 transition-all" style="width:0%"></div>
+      </div>
+
+      <form id="surveyForm">
+        <section class="step active" id="step1">
+          <h2 class="text-xl font-bold text-slate-800">Identitas Responden</h2>
+          <p class="mb-6 mt-1 text-sm text-slate-500">Silakan isi informasi berikut sebelum memulai penilaian.</p>
+
+          <label for="nama" class="mb-2 block text-sm font-semibold">Nama Lengkap / Username <span class="text-red-500">*</span></label>
+          <input id="nama" name="nama" required maxlength="100" autocomplete="name"
+            class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Masukkan nama atau username">
+
+          <label class="mb-2 mt-5 block text-sm font-semibold">Jenis Layanan <span class="text-red-500">*</span></label>
+          <div class="grid gap-3 sm:grid-cols-3">
+            <label class="flex cursor-pointer items-center gap-2 rounded-xl border p-3"><input type="radio" name="layanan" value="Cetak KTP-el" required><span class="text-sm">Cetak KTP-el</span></label>
+            <label class="flex cursor-pointer items-center gap-2 rounded-xl border p-3"><input type="radio" name="layanan" value="Aktivasi IKD"><span class="text-sm">Aktivasi IKD</span></label>
+            <label class="flex cursor-pointer items-center gap-2 rounded-xl border p-3"><input type="radio" name="layanan" value="Keduanya"><span class="text-sm">Keduanya</span></label>
+          </div>
+          <button type="button" id="toQuestions" class="mt-8 w-full rounded-xl bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800">
+            Mulai Penilaian <span aria-hidden="true">→</span>
+          </button>
+        </section>
+
+        <section class="step" id="step2">
+          <h2 class="text-xl font-bold text-slate-800">Penilaian Pelayanan</h2>
+          <p class="mb-5 mt-1 text-sm text-slate-500">Pilih satu nilai untuk setiap pernyataan. Seluruh 15 pertanyaan wajib dijawab.</p>
+          <div class="mb-2 flex justify-between text-xs text-slate-500"><span>Jawaban terisi</span><span id="answered">0/15</span></div>
+          <div class="mb-5 h-2 overflow-hidden rounded-full bg-slate-100"><div id="answerProgress" class="h-full bg-emerald-500" style="width:0%"></div></div>
+
+          <div id="questionList" class="space-y-5"></div>
+
+          <label for="saran" class="mb-2 mt-6 block text-sm font-semibold">Kritik dan Saran (Opsional)</label>
+          <textarea id="saran" name="saran" rows="4" maxlength="2000"
+            class="w-full rounded-xl border border-slate-300 p-3 outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Tuliskan masukan untuk peningkatan pelayanan..."></textarea>
+
+          <div class="mt-7 flex gap-3">
+            <button type="button" id="back" class="w-1/3 rounded-xl border border-slate-300 py-3 font-semibold">Kembali</button>
+            <button type="submit" id="send" class="w-2/3 rounded-xl bg-blue-700 py-3 font-semibold text-white hover:bg-blue-800">Kirim Penilaian</button>
+          </div>
+        </section>
+      </form>
+    </section>
+    <p class="mt-5 text-center text-xs text-blue-50">Terima kasih telah membantu peningkatan kualitas pelayanan publik.</p>
+    <p class="mt-2 text-center text-[11px] text-blue-100/80">MPP Disdukcapil Kabupaten Majalengka</p>
+  </main>
+
+  <script src="./assets/js/config.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
